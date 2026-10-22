@@ -21,5 +21,16 @@
   - requests.get(url,timeout -5), exponential backoff,retry 3 times
 ### Circuit Breaker
   - if api fails repeatedly, stop calling api for few minutes
+
+## Pipeline for Schema Validation
+ - Flow-> Source-> Schema Registry-> Validation Engine-> Accepted Records-> Rejected Records
+ - Examples ->
+   ### Using Pydantic
+       class pydantic import BaseModel
+         class User(BaseModel):
+              name: str
+              age:int
+ - validations -> users(**payload)
+ - Benefits-> Early failure detection, strong typing and data equity
    
      
