@@ -32,5 +32,47 @@
               age:int
  - validations -> users(**payload)
  - Benefits-> Early failure detection, strong typing and data equity
+
+## Skews in join
+ - Suppose Orders Table and customerA has 1 milliom rows and customerB has 10 rows.
+ - Join order customers one node gets 1 million rows and others get 10 rows.
+ - Result is slow execution and unbalanced workload
+   ### Solution
+     - Salting -> Add random key to distribute data
+     - BroadCast join -> Small tables copied to all nodes
+     - Repartitioning -> Redistribute data evenly
+ ## WaterMark
+   - Store successful timestamp
+   - benefits-> fast, less storage, lower cost
+   - examples-> watermark: 2025-06-05 10:00
+   - next run-> SELECT * FROM orders WHERE updated_at> '2025-06-05 10:00'
+ ## Incremental Loading
+   - full load-> Every run =10 millions rows bad
+   - incremental load only load new rows
+ ## Store 10gb file without memory issues
+   - Chunk Processing
+   - Cloud Storage
+   - Streaming
+ ## SCD type 2 (Slowly Changing Dimension)
+   ### Trace history
+       customer id=1 , city= delhi, later city= Mumbai
+   ### Dimensional Table
+   | id | city | start Date | End Date | Current |
+   | ----------- | ----------- | ----------- | ----------- | ---------- |
+   | 1 | Delhi | 2024 | 2025 | N
+   | 2 | Mumbai | 2025 | NULL | Y
+   ### Process
+      when change arrives:-
+       - Close old record -> end-date=now()
+       - Insert new record -> current=Y
+   Preserves historical changes by expiring the old rows and inserting a new version with effective dates and current flags    
+ ## How to optimise slow queries
+  1. Check query plan, EXPLAIN ANALYZE SELECT
+  2. Add Indexes
+  3. Avoid select *
+  4. Optimise JOINS
+  5. Pagination
+  6. Use composite Index
+  7. Remove N+1 queries
    
      
