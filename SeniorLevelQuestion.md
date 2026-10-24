@@ -74,5 +74,26 @@
   5. Pagination
   6. Use composite Index
   7. Remove N+1 queries
+## Top K frequent element , Time complexity O(nlogK) Space complexity O(n)
+    import heapq
+    def freequnecyEle(arr,k):
+          mp={},heap=[]
+          for i in arr:
+             mp[i]=mp.get(i,0)+1
+          for num,val in mp.items():
+             heapq.heappush(heap,(val,num))
+             if len(heap)>k:
+                heapq.heappop(heap)
+          return [num for freq,num in heap]
+  ## SQL query who ordered for consecutive 3 days
+     WITH ctc AS (SELECT user_id, order_date
+      ROW_NUMBER() OVER (PARTITION BY user_id
+      ORDER BY order_date ) rn FROM orders),
+      grp As (SELECT user_id, DATE_SUB( order_date,
+      INTERVAL rn DAY) grp_id FROM ctc)
+      SELECT user_id 
+      FROM grp
+      GROUP BY user_id,grp_id
+      HAVING COUNT(*) >=3
    
      
