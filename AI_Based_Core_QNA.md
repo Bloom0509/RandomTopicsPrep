@@ -29,3 +29,15 @@
  - Benefits : less hallucination, more accurate, domain-specific answers
 ## LLM context Window
  - maximum number of tokens a model process in one request.
+## what is Agentic AI?
+ - Question-> Think-> Plan-> use Tools-> execute-> verify ->Answer
+ - Planner Agent? it decides what should be done
+ - executor Agent? it performs actual task
+ - Tool calling? AI can use external systems
+ - Memory? allows agent to remember previous interactions
+## Vector search
+ - converts text to vectors, search nearest vector
+## hybrid search
+ - keyword + vector
+## Re-ranking
+ - Top 20 docs then re ranker sorts again
