@@ -41,3 +41,18 @@
  - keyword + vector
 ## Re-ranking
  - Top 20 docs then re ranker sorts again
+## Embedding models
+ - convert text to numbers
+## Chunking strategies
+  - before storing in db , we split
+  ## fixed chunking 
+   - Split every N character
+   - example: doc 1000 words , chunk1-> 1-200, chunk2-> 201-400,  chunk3-> 401-600
+  ## semantic chunking
+   - split based on meaning
+  ## recursive chunking
+   - split hierarchy
+   - paragraph->sentence->words
+  ## parent child chunking
+   - parent = full section
+   - child = small chunk
