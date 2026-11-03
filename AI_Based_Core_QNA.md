@@ -56,3 +56,21 @@
   ## parent child chunking
    - parent = full section
    - child = small chunk
+ ## AI agents
+   - It can reason, decide ,use tools, take actions, observe results, retry if needed.
+   - User -> Agent -> Tool -> observation -> Agent -> Response
+   - Goal -> Reason -> Take Actions -> Use Tools -> Observe Results -> Repeat until Goal Achieved
+   - Key: LLM generates text, agent makes decisions and perform actions
+ ## Tokenization
+   - Process of breaking  raw text into smaller manageable units called tokens (such as words,subwords or characters) and assigning them numerical IDs
+ ## Conversational Artificial Intelligence
+   - A system that interacts with users through natural language
+   - example: chatGPT, customer support bot
+   - Flow: User -> LLM -> Responses
+   ## characteristics
+   - Maintains conversation context
+   - Understands natural language
+   - Generates responses
+   - Usually does not perform actions
+  ## Tool calling 
+   - Tools are external capabilities available to the agent that perform actions beyond the LLM's training data
