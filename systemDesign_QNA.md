@@ -1,6 +1,7 @@
 ## Designing large scale systems
   - ensuring system remains responsive
   - flow: concurrent request -> user ->load balancer -> API servers -> DB service -> databases  <->primary bottleneck
+
   ## 2 key techniques
    ## database replication
    - multiple db across servers
