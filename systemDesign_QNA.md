@@ -26,7 +26,10 @@
   ## Difference between sharding and partitioning?
    - lies in scope of data distribution
    - Sharding distributes across multiple independent physical servers or databases
-   - Partitioning breaks up a single dataset into smaller manageable pieces but to the same db server
+   - Partitioning breaks up a single dataset into smaller manageable pieces but to the same db server, it divides data inside a single database instance
+     | partition | sharding |
+     | ----------- | ----------- |
+     | performance and maintenance | scalability and distribution |
   ## SQL vs NoSQL
   | SQL | NoSQL |
   | ----------- | ----------- |
