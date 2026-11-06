@@ -27,3 +27,25 @@
    - lies in scope of data distribution
    - Sharding distributes across multiple independent physical servers or databases
    - Partitioning breaks up a single dataset into smaller manageable pieces but to the same db server
+  ## SQL vs NoSQL
+  | SQL | NoSQL |
+  | ----------- | ----------- |
+  | don't offer sharding | have built in sharding support |
+  ## database partitioning
+   - splitting a large table into smaller physical pieces called partitions, while still appearing as a single table to the application
+   - orders Table
+     
+     | partition 1 | 2024 orders |
+     | ----------- | ----------- |
+     | partition 2 | 2025 orders |
+     | partition 3 | 2026 orders |
+   - The application still queries - SELECT * FROM orders;
+   - but the database internally access only the relevant partitions
+  ## Types of Partition
+   ## range partitioning 
+  - Orders-2024,2025,2026
+   ## list partitioning
+   - Customers- India,USA,UK
+   ## hash partitioning
+   - custom ID- partition1,partition2
+  
