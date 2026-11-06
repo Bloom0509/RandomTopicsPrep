@@ -23,3 +23,7 @@
    ## database sharding
    - shard keys: Range based(1-100)(101-200), hash based
    - you may have to range each shard so range based is more efficient.
+  ## Difference between sharding and partitioning?
+   - lies in scope of data distribution
+   - Sharding distributes across multiple independent physical servers or databases
+   - Partitioning breaks up a single dataset into smaller manageable pieces but to the same db server
