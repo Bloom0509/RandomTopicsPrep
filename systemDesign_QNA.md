@@ -51,4 +51,12 @@
    - Customers- India,USA,UK
    ## hash partitioning
    - custom ID- partition1,partition2
+ ## Thread vs Asyncio    
+  | Thread | Async/io |
+  | ----------- | ----------- |
+  | Multiple threads run concurrently | Single thread with event loop |
+  | Good for I/O tasks | Excellent for I/O tasks |
+  | Context switching overhead | Lightweight |
+  | Blocks thread waste resources | Await releases control |
+  | Uses OS threads | Uses coroutines |
   
