@@ -59,4 +59,32 @@
   | Context switching overhead | Lightweight |
   | Blocks thread waste resources | Await releases control |
   | Uses OS threads | Uses coroutines |
+
+  ## Redis and why?
+  - It is an in memory key value database
+  - keeps frequently accessed data in RAM
+  - Redis=Remote dictionary server
+  - Example: Amazon Product page
+  - Suppose 1 lakh users are viewing iphone17pro
+  - Without Redis: Select * from products where id=101 ; 1lakh db queries,db gets overload
+  - With Redis: store: key= "product:101" , value={"name":"iphone17pro",price:120000} All users gets data from redis,DB load reduces
+ ## why Redis?
+  - Extremely fast(RAM based)
+  - Reduces DB load
+  - Improve response time
+  - Caching
+  - Session storage
+  - Rate limiting
+ ## Caching strategy
+   ## Cache Aside
+  - Application checks redis first, on cache miss data is fetched from DB and stored back in redis
+   ## Write Through
+   - Every write updates both redis and DB, ensuring cache consistency.
+   ## Write Back
+   - Writes go to redis first and are asynchronously persisted to DB later
+   - improves write performance
+   ## LRU
+   - Removes the least recently accessed data when the memory is full
+   ## LFU
+   - Removes the least freqently accessed data when memory is full
   
