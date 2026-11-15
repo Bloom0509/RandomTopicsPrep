@@ -101,4 +101,8 @@
  ## Circuit Breaker Pattern - Managing Persistent failures
   - acts like an electrical fuse,cinstead of letting a client continually waste system threads and connection pools on completely dead service
   - It intentionally blocks request to let the downstream system recover
+    ## 3 states
+     - Closed: API operates normally , framework actively tracks the ratio of success and failures
+     - Open: error rate crosses set threshold , api immediately stops routing traffic and throws quick fail-fast response without network call
+     - Half-Open: Specific cool downs expires the circuit tentatively tests the downstream system by passing a controlled sample of requests, if succed closes the circuit, fail ,back to open.
   
