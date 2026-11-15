@@ -105,4 +105,13 @@
      - Closed: API operates normally , framework actively tracks the ratio of success and failures
      - Open: error rate crosses set threshold , api immediately stops routing traffic and throws quick fail-fast response without network call
      - Half-Open: Specific cool downs expires the circuit tentatively tests the downstream system by passing a controlled sample of requests, if succed closes the circuit, fail ,back to open.
-  
+  ## How to combine them safely (orders Matters)
+  - circuit Breakers must warp the retry logic
+  - When client initiates a request , it must first query the state of the circuit breaker
+  - If the breaker is open, then application must immediately return a fallback response without attempting any retries.
+  - If the breaker is closed, the request passes through the internal retry pipeline.
+  - Standard Middleware solution is apiGateway
+  ## Designing Fallback Strategies
+   - static Defaults: Returns a empty list, a precached response or a generic placeholder object
+   - cached Read: Fallback to stale data is redis
+   - Queue for write: Kafka cluster, process asynchronously
