@@ -98,4 +98,7 @@
    - introduces small, random variations to the backoff window to spread out traffic
   ## set a tight limit
    - cap retries to 2-3 attempts(max)
+ ## Circuit Breaker Pattern - Managing Persistent failures
+  - acts like an electrical fuse,cinstead of letting a client continually waste system threads and connection pools on completely dead service
+  - It intentionally blocks request to let the downstream system recover
   
