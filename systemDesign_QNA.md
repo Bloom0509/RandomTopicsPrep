@@ -87,4 +87,15 @@
    - Removes the least recently accessed data when the memory is full
    ## LFU
    - Removes the least freqently accessed data when memory is full
+ ## API design - Circuit Breaker and Retry Patterns
+  ## Retry Pattern
+   - Managing transient failures
+  ## only retry idompotent requests
+   - Can cause duplicates
+  ## use expotential backoffs 
+   - give downstream service
+  ## add jitter(randomness)
+   - introduces small, random variations to the backoff window to spread out traffic
+  ## set a tight limit
+   - cap retries to 2-3 attempts(max)
   
