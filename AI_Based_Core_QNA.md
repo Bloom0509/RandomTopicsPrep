@@ -107,5 +107,18 @@
            - Planner used = 75 times
            - Recall = 75/100 =75%
       - Human Evaluation
+        - humans manually verify
+        - Examples:
+           - user: What's the weather in chennai?
+           - Planner Agent: Creates plan, need weather info
+           - Tool Selection: Weather API
+           - Executor Agent: Calls weather api ("chennai"), returns 34C sunny
+           - Memory: stores user location= chennai
+           - Evaluation: Ground Truth : Weather API
+           - Result:
+             - Accuracy= correct
+             - Precision=Correct selection
+             - Recall=Tool wasn't missed
+             - Human Evaluation=Pass
                 
                
