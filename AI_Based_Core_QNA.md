@@ -74,3 +74,38 @@
    - Usually does not perform actions
   ## Tool calling 
    - Tools are external capabilities available to the agent that perform actions beyond the LLM's training data
+  ## Multi-agent architecture
+   - instead of AI doing everything multiple specialized agents work together
+   - Example: Travel Planner
+   - Planner Agent-> Research Agent-> Booking Agent-> Review Agent
+   - Workflow: Planner :- Need flight + hotel
+   - Research Agent :- Find options
+   - Booking Agent :- Make reservations
+   - Review Agent :- Check correctness
+  ## How do you know planner chose correct Tool?
+   - Evaluation of agents:
+      - Ground Truth Dataset
+          - Example: Question : Weather in chennai
+          - Expected Tool : Weather API
+          - Question: 50+70, Tool: Calculator
+      - Tool selection Accuracy:
+        - it measures (correct Total selections)/ (total questions)
+        - Example: weather-> weather Tool
+        - Math-> calculator
+        - Policy-> search Tool
+        - Stock Price-> Weather Tool
+        - Accuracy = 3/4 =75%
+      - Precision
+        - Planner selected weather Tool
+        - 100 times, but actually 80 times needed
+        - precision 80/100= 80%
+      - Recall
+        - Out of all times a tool should hence been selected
+        - How many times did planner select it
+        - formula = correct selection/actual required
+           - weather Tool =100 times used
+           - Planner used = 75 times
+           - Recall = 75/100 =75%
+      - Human Evaluation
+                
+               
