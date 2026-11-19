@@ -44,5 +44,35 @@ flowchart TD
     CM -.-> API
 ```
 
+## worker Node Components
+  ## kubelet 
+   - agent running on each node, talks to API server from node. It creates monitor pods
+  ## Container Runtime
+  - runs containers example: docker
+  ## kube proxy
+  - handles networking, route traffic
+  - Pod-> express
+  ## pod
+  - smallest deployable unit , supports multiple container
+  - Pod->App Container.logging
+
+## what happens when pod crashes?
+- replica set recreates
+## what happens when node crashes?
+- scheduler moves pods to healthy pods
+## how does service find pods?
+- labels + selectors
+## why deployment?
+- scaling
+- Rollback
+- Rolling updates
+## how kubernetes achieve zero downtime?
+- rolling updates
+- readiness probes
+## Ingress  
+- network traffic, management to the services in a kubernetes cluster
+- acting as an API object that manages external access to service within the clusters
+
+
 
 
